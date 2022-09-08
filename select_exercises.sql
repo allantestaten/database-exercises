@@ -59,39 +59,8 @@ WHERE release_date BETWEEN 1990 AND 1999
 -- e. Which albums had less than 20 million certified sales
 SELECT name
 FROM albums
-WHERE sales < 20000000
+WHERE sales < 20
 
---Thriller
---Back in Black
---The Dark Side of the Moon
---Bat Out of Hell
---The Bodyguard
---Their Greatest Hits (1971–1975)
---Saturday Night Fever
---Rumours
---Grease: The Original Soundtrack from the Motion Picture
---Led Zeppelin IV
---Bad
---Jagged Little Pill
---Come On Over
---Falling into You
---Sgt. Pepper's Lonely Hearts Club Band
---Hotel California
---Dirty Dancing
---21
---Let's Talk About Love
---1
---Dangerous
---The Immaculate Collection
---Abbey Road
---Born in the U.S.A.
---Brothers in Arms
---Titanic: Music from the Motion Picture
---Metallica
---Nevermind
---The Wall
---Supernatural
---Appetite for Destruction
 
 -- f. All the albums with a genre of "Rock". Why do these query results not include albums with a genre of "Hard rock" or "Progressive rock"?
 SELECT name
