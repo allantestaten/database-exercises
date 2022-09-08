@@ -18,7 +18,7 @@ ORDER BY customer_id ASC, quantity DESC;
 SELECT first_name, last_name
 FROM employees
 WHERE first_name IN ('Irena', 'Vidya', 'Maya')
-ORDER BY first_name, last_name;
+ORDER BY first_name;
 
 --3. Find all employees with first names 'Irena', 'Vidya', or 'Maya', and order your results 
 --returned by first name and then last name. 
@@ -27,10 +27,20 @@ ORDER BY first_name, last_name;
 --What was the first and last name in the first row of the results? Irena Acton
 -- What was the first and last name of the last person in the table? Vidya Zweizig
 
+SELECT first_name, last_name
+FROM employees
+WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+ORDER BY first_name, last_name;
+
 --4. Find all employees with first names 'Irena', 'Vidya', or 'Maya', and order your results 
 --returned by last name and then first name. In your comments, answer: What was the first and last name 
 --in the first row of the results? What was the first and last name of the last person in the table? 
 --Irena Acton / Maya Zyda
+
+SELECT first_name, last_name
+FROM employees
+WHERE first_name IN ('Irena', 'Vidya', 'Maya')
+ORDER BY last_name, first_name;
 
 --5.Write a query to to find all employees whose last name starts and ends with 'E'. 
 --Sort the results by their employee number. 
@@ -58,3 +68,14 @@ ORDER BY hire_date ;
 --Enter a comment with the number of employees returned, the name of the oldest employee who was hired last,
 --and the name of the youngest employee who was hired first.
 --362 RETURNED/KHUN BERNINI/DOUADI PETTIS
+SELECT *
+FROM employees
+WHERE hire_date LIKE '199%' 
+	AND birth_date LIKE '%12-25%'
+    ORDER BY birth_date DESC, hire_date ;
+
+    SELECT *
+FROM employees
+WHERE hire_date LIKE '199%' 
+	AND birth_date LIKE '%12-25%'
+    ORDER BY birth_date , hire_date DESC ;
