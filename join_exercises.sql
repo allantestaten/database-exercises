@@ -1,4 +1,17 @@
 Example Data Base Problems 
+1. 
+USE join_example_db;
+
+SELECT *
+
+FROM users
+
+USE join_example_db;
+
+SELECT *
+
+FROM roles
+
 2. 
 
 USE join_example_db;
@@ -24,6 +37,17 @@ FROM users
 JOIN roles on users.role_id = roles.id
 
 GROUP BY roles.name
+
+classroom 
+
+SELECT * 
+FROM roles;
+
+SELECT roles.name AS role_name,
+	COUNT(users.name) AS number_of_employees
+FROM users 
+RIGHT JOIN roles ON users.role_id = roles.id
+GROUP BY role_name
 
 Employees Database Problems 
 
