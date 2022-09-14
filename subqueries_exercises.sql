@@ -78,4 +78,39 @@ WHERE to_date > CURDATE() AND salaries.salary >
 				(SELECT(AVG(salaries.salary)) 
                 FROM salaries))
 
-6. 
+6. How many current salaries are within 1 standard deviation of the current highest salary? (Hint: you can use a built in function to calculate the standard deviation.) 
+What percentage of all salaries is this?
+/*HIGHEST SALARY*/
+
+USE employees;
+SELECT MAX(salary)
+FROM salaries 
+WHERE to_date> CURDATE();
+/*STD DEV*/
+
+SELECT STD(salary)
+FROM salaries
+WHERE to_date > CURDATE();
+
+/*COUNT*/
+SELECT COUNT(*)
+FROM salaries 
+WHERE to_date > CURDATE()
+				AND salary > (SELECT MAX(salary)
+				FROM salaries 
+				WHERE to_date> CURDATE()) - 
+                (SELECT STD(salary)
+				FROM salaries
+				WHERE to_date > CURDATE()); 
+
+
+PERCENTAGE PART OF QUESTION 
+select((select count(*)
+from salaries
+where to_date > now()
+and salary > (
+(select max(salary) from salaries where to_date > now()) - 
+(select std(salary) from salaries where to_date > now())
+))/(select count(*)
+from salaries 
+where to_date > now())) * 100 as "percentage of salaries within 1 Stdev of Max";
